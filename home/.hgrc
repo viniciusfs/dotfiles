@@ -1,0 +1,7 @@
+[ui]
+editor = vim
+username = Vinicius Figueiredo <viniciusfs@gmail.com>
+
+[extensions]
+hgext.bookmarks =
+hggit =
