@@ -1,17 +1,5 @@
-# homeshick
-
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
-
-# oh my zsh
-export ZSH=/home/vfigueiredo/.oh-my-zsh
-
-ZSH_THEME="ultrav"
-HIST_STAMPS="yyyy-mm-dd"
-
-plugins=(git virtualenv virtualenvwrapper)
-
-source $ZSH/oh-my-zsh.sh
+# .zshrc file
+# Vinícius Figueiredo <viniciusfs@gmail.com>
 
 # put ~/bin on PATH
 if [ -d $HOME/bin ]; then
@@ -28,3 +16,17 @@ fi
 # virtualenv wrapper
 export PROJECT_HOME=$HOME/Code
 export WORKON_HOME=$PROJECT_HOME/.virtualenvs
+
+# homeshick
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+
+# oh my zsh
+export ZSH=$HOME/.oh-my-zsh
+
+ZSH_THEME="ultrav"
+HIST_STAMPS="yyyy-mm-dd"
+
+plugins=(git virtualenv virtualenvwrapper vagrant)
+
+source $ZSH/oh-my-zsh.sh
