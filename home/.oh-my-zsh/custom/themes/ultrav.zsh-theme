@@ -1,7 +1,7 @@
 # ultrav ZSH Theme, based on avit
 
 PROMPT='
-$(_user_host)${_current_dir} $(git_prompt_info)
+$(_user_host)${_current_dir} $(git_prompt_info) $(_virtualenv_info)
 %{$fg[$CARETCOLOR]%}➤%{$resetcolor%} '
 
 PROMPT2='%{$fg[$CARETCOLOR]%}...%{$reset_color%} '
@@ -68,6 +68,10 @@ function _git_time_since_commit() {
     color=$ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL
     echo "$color$commit_age%{$reset_color%}"
   fi
+}
+
+function _virtualenv_info() {
+  [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`')' ;
 }
 
 if [[ $USER == "root" ]]; then
