@@ -15,6 +15,4 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias packer.io='${HOME}/bin/packer'
 alias nr='sudo systemctl restart networking.service network-manager.service'
-sudo systemctl restart networking.service network-manager.service
