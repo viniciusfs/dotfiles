@@ -47,8 +47,8 @@ if [ -n $HAVE_VIM ]; then
 fi
 
 # Virtualenv Wrapper settings
-export PROJECT_HOME=$HOME/Code
-export WORKON_HOME=$PROJECT_HOME/.virtualenvs
+export PROJECT_HOME=$HOME/ownCloud/Code
+export WORKON_HOME=$HOME/.virtualenvs
 
 distro_version=$(lsb_release -si)
 if [ ${distro_version} == 'Ubuntu' ]; then
