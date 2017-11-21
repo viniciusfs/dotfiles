@@ -92,6 +92,9 @@ function! VisualMargin()
 endfunc
 nnoremap <F4> :call VisualMargin()<CR>
 
+" indentLines plugin, F5 to enable/disable
+nnoremap <F5> :IndentLinesToggle<CR>
+
 " split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
