@@ -127,9 +127,6 @@ set expandtab
 
 let g:indentLine_char = '→'
 
-" spelling
-set spell spelllang=pt
-
 " disable syntax concealing in vim-markdown
 " let g:vim_markdown_conceal = 0
 
@@ -150,3 +147,8 @@ au BufNewFile,BufRead *.js, *.html, *.css, *.sh
 au BufNewFile,BufRead *.json
   \ set filetype=json autoindent formatoptions=tcq2l textwidth=79 |
   \ set shiftwidth=2 softtabstop=2 tabstop=8 expandtab foldmethod=syntax
+
+" spelling on markdown files
+au BufNewFile,BufRead *.md, *.markdown
+  \ set spell spelllang=pt
+
