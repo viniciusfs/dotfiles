@@ -32,7 +32,8 @@ Plugin 'pearofducks/ansible-vim'
 Plugin 'godlygeek/tabular'
 " file type
 Plugin 'vim-scripts/vim-json-bundle'
-Plugin 'plasticboy/vim-markdown'
+" Plugin 'plasticboy/vim-markdown'
+Plugin 'gabrielelana/vim-markdown'
 " indentLine
 Plugin 'Yggdroot/indentLine'
 " NERDtree, file browser
@@ -44,6 +45,16 @@ Plugin 'fxn/vim-monochrome'
 " color schemes, gui
 Plugin 'altercation/vim-colors-solarized'
 
+" terraform
+Plugin 'hashivim/vim-terraform'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'juliosueiras/vim-terraform-completion'
+
+" Jenkinsfile
+Plugin 'martinda/Jenkinsfile-vim-syntax'
+
+" Elixir
+Plugin 'elixir-editors/vim-elixir'
 call vundle#end()
 
 filetype plugin indent on
@@ -112,11 +123,12 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 " file encoding and format
 set encoding=utf-8
 set fileformats=unix,dos,mac
+set expandtab
 
 let g:indentLine_char = '→'
 
 " disable syntax concealing in vim-markdown
-let g:vim_markdown_conceal = 0
+" let g:vim_markdown_conceal = 0
 
 
 " python
