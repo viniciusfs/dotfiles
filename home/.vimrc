@@ -127,6 +127,9 @@ set expandtab
 
 let g:indentLine_char = '→'
 
+" spelling
+set spell spelllang=pt
+
 " disable syntax concealing in vim-markdown
 " let g:vim_markdown_conceal = 0
 
