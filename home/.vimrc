@@ -18,32 +18,39 @@ call vundle#begin()
 Bundle 'VundleVim/Vundle.vim'
 
 " list of plugins
-"
+"""""""""""""""""
 " python code folding for Vim
 Plugin 'tmhedberg/SimpylFold'
 " python code indentation script
 Plugin 'vim-scripts/indentpython.vim'
 " python PEP8 syntax and style checker, requires 'python2-flake8', run with F7
 Plugin 'nvie/vim-flake8'
+
 " whitespace highlighting - to clean extra whitespace call :StripWhitespace
 Plugin 'ntpeters/vim-better-whitespace'
-" syntax highlighting
-Plugin 'pearofducks/ansible-vim'
-Plugin 'godlygeek/tabular'
-" file type
-Plugin 'vim-scripts/vim-json-bundle'
-" Plugin 'plasticboy/vim-markdown'
-Plugin 'gabrielelana/vim-markdown'
+
 " indentLine
 Plugin 'Yggdroot/indentLine'
+
 " NERDtree, file browser
 Plugin 'scrooloose/nerdtree'
+
 " color schemes, term
 Plugin 'tyrannicaltoucan/vim-deep-space'
 Plugin 'vim-scripts/jellybeans.vim'
 Plugin 'fxn/vim-monochrome'
+
 " color schemes, gui
 Plugin 'altercation/vim-colors-solarized'
+
+" syntax highlighting
+Plugin 'pearofducks/ansible-vim'
+Plugin 'godlygeek/tabular'
+
+" file type
+Plugin 'vim-scripts/vim-json-bundle'
+" Plugin 'plasticboy/vim-markdown'
+Plugin 'gabrielelana/vim-markdown'
 
 " terraform
 Plugin 'hashivim/vim-terraform'
@@ -55,6 +62,7 @@ Plugin 'martinda/Jenkinsfile-vim-syntax'
 
 " Elixir
 Plugin 'elixir-editors/vim-elixir'
+
 call vundle#end()
 
 filetype plugin indent on
