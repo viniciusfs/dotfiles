@@ -63,6 +63,9 @@ Plugin 'martinda/Jenkinsfile-vim-syntax'
 " Elixir
 Plugin 'elixir-editors/vim-elixir'
 
+" Quotes
+Plugin 'tpope/vim-surround'
+
 call vundle#end()
 
 filetype plugin indent on
@@ -136,7 +139,7 @@ set expandtab
 let g:indentLine_char = '→'
 
 " disable syntax concealing in vim-markdown
-" let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal = 0
 
 
 " python

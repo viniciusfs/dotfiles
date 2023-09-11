@@ -69,3 +69,6 @@ source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
 # asdf
 . $HOME/.asdf/asdf.sh
+source <(kubectl completion bash)
+
+export PATH=${PATH}:/home/vinicius/.asdf/installs/gcloud/442.0.0/bin/
