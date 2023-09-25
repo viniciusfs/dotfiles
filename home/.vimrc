@@ -51,6 +51,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'vim-scripts/vim-json-bundle'
 " Plugin 'plasticboy/vim-markdown'
 Plugin 'gabrielelana/vim-markdown'
+Plugin 'pedrohdz/vim-yaml-folds'
 
 " terraform
 Plugin 'hashivim/vim-terraform'
@@ -163,3 +164,5 @@ au BufNewFile,BufRead *.json
 au BufNewFile,BufRead *.md, *.markdown
   \ set spell spelllang=pt
 
+" YAML
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
