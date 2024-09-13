@@ -81,11 +81,11 @@ function set_k8s_context {
 function set_bash_prompt {
   set_prompt_symbol $?
 
-  set_virtualenv
-
   set_working_dir
 
   set_k8s_context
+
+  set_virtualenv
 
   if is_git_repository ; then
     set_git_branch
@@ -94,7 +94,7 @@ function set_bash_prompt {
   fi
 
   PS1="
-\u@\H ${WORKING_DIR} ${BRANCH} ${PYTHON_VIRTUALENV} ${K8S_CONTEXT}
+\u@\H ${WORKING_DIR} ${BRANCH} ${K8S_CONTEXT} ${PYTHON_VIRTUALENV}
 ${PROMPT_SYMBOL} "
 }
 
