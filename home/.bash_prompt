@@ -2,11 +2,11 @@
 
 GRAY="\e[38;5;241m"
 RED="\e[38;5;1m"
-YELLOW="\e[38;5;11m"
-GREEN="\e[38;5;46m"
-PURPLE="\e[38;5;135m"
-ORANGE="\e[38;5;208m"
-PINK="\e[38;5;211m"
+YELLOW="\e[38;5;143m"
+GREEN="\e[38;5;071m"
+PURPLE="\e[38;5;097m"
+ORANGE="\e[38;5;137m"
+PINK="\e[38;5;175m"
 BOLD="\e[1m"
 RESET="\e[0m"
 
