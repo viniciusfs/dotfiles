@@ -93,9 +93,7 @@ function set_bash_prompt {
     BRANCH=''
   fi
 
-  PS1="
-\u@\H ${WORKING_DIR} ${BRANCH} ${K8S_CONTEXT} ${PYTHON_VIRTUALENV}
-${PROMPT_SYMBOL} "
+  PS1="\n\u@\H ${WORKING_DIR} ${BRANCH} ${K8S_CONTEXT}\n${PROMPT_SYMBOL} "
 }
 
 PROMPT_COMMAND=set_bash_prompt
