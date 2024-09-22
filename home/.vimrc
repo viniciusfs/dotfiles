@@ -151,7 +151,7 @@ au BufNewFile,BufRead *.py
 let python_highlight_all=1
 
 " HTML, CSS, JavaScript and Shell
-au BufNewFile,BufRead *.js, *.html, *.css, *.sh
+au BufNewFile,BufRead *.js, *.html, *.css, *.sh, .bashrc, .bash_prompt, .bash_aliases
   \ set tabstop=2 softtabstop=2 shiftwidth=2 textwidth=79 |
   \ set expandtab autoindent
 
