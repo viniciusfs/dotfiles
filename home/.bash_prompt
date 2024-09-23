@@ -75,7 +75,11 @@ function set_working_dir {
 }
 
 function set_k8s_context {
-  K8S_CONTEXT="${PURPLE}[k8s: $(kubectl config current-context | sed 's/.*\:cluster\///g')]${RESET}"
+  if [[ $SET_K8S_CONTEXT != "" ]]; then
+    K8S_CONTEXT="${PURPLE}[k8s: $(kubectl config current-context | sed 's/.*\:cluster\///g')]${RESET}"
+  else
+    K8S_CONTEXT=""
+  fi
 }
 
 function set_bash_prompt {
@@ -93,7 +97,7 @@ function set_bash_prompt {
     BRANCH=''
   fi
 
-  PS1="\n\u@\H ${WORKING_DIR} ${BRANCH} ${K8S_CONTEXT}\n${PROMPT_SYMBOL} "
+  PS1="\n\u@\H ${WORKING_DIR} ${BRANCH} ${PYTHON_VIRTUALENV} ${K8S_CONTEXT}\n${PROMPT_SYMBOL} "
 }
 
 PROMPT_COMMAND=set_bash_prompt
