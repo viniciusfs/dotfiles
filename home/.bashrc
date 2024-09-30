@@ -59,6 +59,7 @@ fi
 unset distro_version
 
 # Bash prompt
+export SET_K8S_CONTEXT=1
 if [ -f ~/.bash_prompt ]; then
     . ~/.bash_prompt
 fi
