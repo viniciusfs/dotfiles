@@ -51,6 +51,9 @@ filetype plugin indent on
 set title
 
 syntax on
+
+set background=dark
+set termguicolors
 colorscheme deep-space
 
 set backspace=indent,eol,start
