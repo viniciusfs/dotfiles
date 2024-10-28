@@ -14,5 +14,3 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-
-alias nr='sudo systemctl restart networking.service network-manager.service'
