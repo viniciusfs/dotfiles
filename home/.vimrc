@@ -1,5 +1,6 @@
 " .vimrc file
 " Vinicius Figueiredo <viniciusfs@gmail.com>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " begin Vundle.vim setup - https://github.com/VundleVim/Vundle.vim
 " :PluginList       - lists configured plugins
@@ -15,57 +16,31 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Bundle 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " list of plugins
 """""""""""""""""
-" python code folding for Vim
+" color scheme
+Plugin 'tyrannicaltoucan/vim-deep-space'
+
+" shows identation levels (when using spaces) with special character
+Plugin 'Yggdroot/indentLine'
+
+" whitespace highlighting, to clean extra whitespace call :StripWhitespace
+Plugin 'ntpeters/vim-better-whitespace'
+
+" NERDtree file browser
+Plugin 'scrooloose/nerdtree'
+
+" python code folding
 Plugin 'tmhedberg/SimpylFold'
 " python code indentation script
 Plugin 'vim-scripts/indentpython.vim'
-" python PEP8 syntax and style checker, requires 'python2-flake8', run with F7
+" python PEP8 syntax and style checker, requires 'python2-flake8'
 Plugin 'nvie/vim-flake8'
-
-" whitespace highlighting - to clean extra whitespace call :StripWhitespace
-Plugin 'ntpeters/vim-better-whitespace'
-
-" indentLine
-Plugin 'Yggdroot/indentLine'
-
-" NERDtree, file browser
-Plugin 'scrooloose/nerdtree'
-
-" color schemes, term
-Plugin 'tyrannicaltoucan/vim-deep-space'
-Plugin 'vim-scripts/jellybeans.vim'
-Plugin 'fxn/vim-monochrome'
-
-" color schemes, gui
-Plugin 'altercation/vim-colors-solarized'
-
-" syntax highlighting
-Plugin 'pearofducks/ansible-vim'
-Plugin 'godlygeek/tabular'
-
-" file type
-Plugin 'vim-scripts/vim-json-bundle'
-" Plugin 'plasticboy/vim-markdown'
-Plugin 'gabrielelana/vim-markdown'
-Plugin 'pedrohdz/vim-yaml-folds'
 
 " terraform
 Plugin 'hashivim/vim-terraform'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'juliosueiras/vim-terraform-completion'
-
-" Jenkinsfile
-Plugin 'martinda/Jenkinsfile-vim-syntax'
-
-" Elixir
-Plugin 'elixir-editors/vim-elixir'
-
-" Quotes
-Plugin 'tpope/vim-surround'
 
 call vundle#end()
 
@@ -73,28 +48,20 @@ filetype plugin indent on
 " end of Vundle.vim setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set backspace=indent,eol,start
 set title
 
 syntax on
+colorscheme deep-space
 
-" enable filetype plugins and indention
-filetype on
-filetype plugin on
-
-" set color scheme
-if has('gui_running')
-  set background=dark
-  colorscheme solarized
-else
-  set t_Co=256
-  colorscheme deep-space
-endif
+set backspace=indent,eol,start
+set encoding=utf-8
+set fileformats=unix,dos,mac
 
 set cmdheight=2
 set showcmd
 set laststatus=2
-set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})
+" https://vimdoc.sourceforge.net/htmldoc/options.html#'statusline'
+set statusline=[%l,%v\ %L\ %P\]\ %f\ %y%m\ %r%h%w
 
 " line numbers, F2 to enable/disable
 set number
@@ -104,7 +71,7 @@ nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 set cursorline
 nnoremap <F3> :set cursorline!<CR>
 
-" visual margin, F4 to enable/disable
+" visual margin, f4 to enable/disable
 set colorcolumn=81
 function! VisualMargin()
   if(&colorcolumn == 81)
@@ -116,13 +83,8 @@ endfunc
 nnoremap <F4> :call VisualMargin()<CR>
 
 " indentLines plugin, F5 to enable/disable
+let g:indentLine_char = '→'
 nnoremap <F5> :IndentLinesToggle<CR>
-
-" split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 " enable folding with spacebar
 set foldmethod=indent
@@ -132,16 +94,17 @@ nnoremap <space> za
 " Map NERDtree to CTRL+n
 nnoremap <C-n> :NERDTreeToggle<CR>
 
-" file encoding and format
-set encoding=utf-8
-set fileformats=unix,dos,mac
-set expandtab
+" split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
-let g:indentLine_char = '→'
-
-" disable syntax concealing in vim-markdown
-let g:vim_markdown_conceal = 0
-
+" enable filetype detection, plugins and indention
+" https://vimdoc.sourceforge.net/htmldoc/filetype.html
+filetype on
+filetype plugin on
+filetype plugin indent on
 
 " python
 au BufNewFile,BufRead *.py
@@ -159,10 +122,6 @@ au BufNewFile,BufRead *.js, *.html, *.css, *.sh, .bashrc, .bash_prompt, .bash_al
 au BufNewFile,BufRead *.json
   \ set filetype=json autoindent formatoptions=tcq2l textwidth=79 |
   \ set shiftwidth=2 softtabstop=2 tabstop=8 expandtab foldmethod=syntax
-
-" spelling on markdown files
-au BufNewFile,BufRead *.md, *.markdown
-  \ set spell spelllang=pt
 
 " YAML
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
