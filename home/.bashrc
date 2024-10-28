@@ -11,27 +11,27 @@ HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 
 # For setting history length.
-HISTSIZE=1000
-HISTFILESIZE=2000
-HISTTIMEFORMAT="%d/%m/%y %T "
+HISTSIZE=5000
+HISTFILESIZE=10000
+HISTTIMEFORMAT="%d/%m/%Y %T "
 
 # Check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS
 shopt -s checkwinsize
 
 # Alias definitions
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f $HOME/.bash_aliases ]; then
+    source $HOME/.bash_aliases
 fi
 
 # Bash completions
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
+    source /etc/bash_completion
 fi
 
 # Functions
-if [ -f ~/.functions ]; then
-    . ~/.functions
+if [ -f $HOME/.functions ]; then
+    source $HOME/.functions
 fi
 
 # Put ~/bin on PATH
@@ -42,34 +42,26 @@ fi
 # Set vim as EDITOR
 HAVE_VIM=$(which vim)
 if [ -n $HAVE_VIM ]; then
-    EDITOR=vim
-    export EDITOR
+    export EDITOR=vim
 fi
 
 # Virtualenv Wrapper settings
 export PROJECT_HOME=$HOME/Code
 export WORKON_HOME=$HOME/.virtualenvs
-
-distro_version=$(lsb_release -si)
-if [ ${distro_version} == 'Ubuntu' ]; then
-    source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-elif [ ${distro_version} == 'CentOS' ]; then
-    source /usr/bin/virtualenvwrapper.sh
-fi
-unset distro_version
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
 # Bash prompt
 export SET_K8S_CONTEXT=1
-if [ -f ~/.bash_prompt ]; then
-    . ~/.bash_prompt
+if [ -f $HOME/.bash_prompt ]; then
+    source $HOME/.bash_prompt
 fi
 
 # Homeshick
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+source $HOME/.homesick/repos/homeshick/homeshick.sh
+source $HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash
 
 # asdf
-. $HOME/.asdf/asdf.sh
-source <(kubectl completion bash)
+source $HOME/.asdf/asdf.sh
+source $HOME/.asdf/plugins/golang/set-env.bash
 
-export PATH=${PATH}:/home/vinicius/.asdf/installs/gcloud/442.0.0/bin/
+source <(kubectl completion bash)

@@ -1,14 +1,48 @@
-#!/bin/bash
+# .bash_prompt file
+# Vinícius Figueiredo <viniciusfs@gmail.com>
 
 GRAY="\e[38;5;241m"
-RED="\e[38;5;1m"
-YELLOW="\e[38;5;143m"
 GREEN="\e[38;5;071m"
-PURPLE="\e[38;5;097m"
 ORANGE="\e[38;5;137m"
 PINK="\e[38;5;175m"
+RED="\e[38;5;1m"
+PURPLE="\e[38;5;097m"
+YELLOW="\e[38;5;143m"
+
 BOLD="\e[1m"
 RESET="\e[0m"
+
+function set_prompt_symbol {
+  if [[ $1 -eq 0 ]]; then
+      PROMPT_SYMBOL="\$"
+  else
+      PROMPT_SYMBOL="${RED}\$${RESET}"
+  fi
+}
+
+function set_working_dir {
+  if [[ $(dirs -0 | wc -c) -gt 40 ]]; then
+      WORKING_DIR=$(dirs -0 | cut -d '/' -f 1-2 | xargs -I{} echo {}"/../${PWD##*/}")
+  else
+      WORKING_DIR=$(dirs -0)
+  fi
+}
+
+function set_k8s_context {
+  if [[ $SET_K8S_CONTEXT != "" ]]; then
+    K8S_CONTEXT="${PURPLE}[k8s: $(kubectl config current-context | sed 's/.*\:cluster\///g')]${RESET}"
+  else
+    K8S_CONTEXT=""
+  fi
+}
+
+function set_virtualenv {
+  if [[ $VIRTUAL_ENV != "" ]]; then
+      PYTHON_VIRTUALENV="${GRAY}[venv: ${VIRTUAL_ENV##*/}]${RESET} "
+  else
+      PYTHON_VIRTUALENV=""
+  fi
+}
 
 function is_git_repository {
   git branch > /dev/null 2>&1
@@ -50,39 +84,9 @@ function set_git_branch {
   BRANCH="${state}[${branch}${remote}]${RESET} "
 }
 
-function set_prompt_symbol {
-  if [[ $1 -eq 0 ]]; then
-      PROMPT_SYMBOL="\$"
-  else
-      PROMPT_SYMBOL="${RED}\$${RESET}"
-  fi
-}
-
-function set_virtualenv {
-  if [[ $VIRTUAL_ENV != "" ]]; then
-      PYTHON_VIRTUALENV="${GRAY}[venv: ${VIRTUAL_ENV##*/}]${RESET} "
-  else
-      PYTHON_VIRTUALENV=""
-  fi
-}
-
-function set_working_dir {
-  if [[ $(dirs -0 | wc -c) -gt 40 ]]; then
-      WORKING_DIR=$(dirs -0 | cut -d '/' -f 1-2 | xargs -I{} echo {}"/../${PWD##*/}")
-  else
-      WORKING_DIR=$(dirs -0)
-  fi
-}
-
-function set_k8s_context {
-  if [[ $SET_K8S_CONTEXT != "" ]]; then
-    K8S_CONTEXT="${PURPLE}[k8s: $(kubectl config current-context | sed 's/.*\:cluster\///g')]${RESET}"
-  else
-    K8S_CONTEXT=""
-  fi
-}
-
 function set_bash_prompt {
+  history -a
+
   set_prompt_symbol $?
 
   set_working_dir
