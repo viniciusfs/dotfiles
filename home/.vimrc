@@ -22,6 +22,7 @@ Plugin 'VundleVim/Vundle.vim'
 """""""""""""""""
 " color scheme
 Plugin 'tyrannicaltoucan/vim-deep-space'
+Plugin 'rose-pine/vim'
 
 " shows identation levels (when using spaces) with special character
 Plugin 'Yggdroot/indentLine'
