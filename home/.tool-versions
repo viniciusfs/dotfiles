@@ -1,0 +1,8 @@
+golang 1.24.3
+kubectl 1.31.9
+awscli 2.27.17
+terraform 1.10.5
+jq 1.7.1
+yq 4.45.4
+kind 0.28.0
+kuttl 0.22.0

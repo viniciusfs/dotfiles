@@ -80,8 +80,8 @@ set conceallevel=2
 set concealcursor-=n
 
 " line numbers, F2 to enable/disable
-set number relativenumber
-nnoremap <F2> :set number!<CR>:set relativenumber!<CR>
+set number
+nnoremap <F2> :set number!<CR>
 
 " highlight current line, F3 to enable/disable
 set cursorline
