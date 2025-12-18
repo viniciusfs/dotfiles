@@ -53,6 +53,9 @@ Plugin 'fatih/vim-go'
 " ale
 Plugin 'dense-analysis/ale'
 
+" codeium/windsurf
+Plugin 'Exafunction/windsurf.vim'
+
 call vundle#end()
 
 filetype plugin indent on

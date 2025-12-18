@@ -41,20 +41,19 @@ if [ -n "$HAVE_VIM" ]; then
 fi
 
 # Virtualenv Wrapper settings
-export PROJECT_HOME=$HOME/Code
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+# export PROJECT_HOME=$HOME/Code
+# export WORKON_HOME=$HOME/.virtualenvs
+# source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
 # Homeshick
 source "$HOME"/.homesick/repos/homeshick/homeshick.sh
 source "$HOME"/.homesick/repos/homeshick/completions/homeshick-completion.bash
 
 # asdf
-source "$HOME"/.asdf/asdf.sh
-
-# asdf golang plugin, set GOROOT
-# https://github.com/asdf-community/asdf-golang/?tab=readme-ov-file#goroot
-source "$HOME"/.asdf/plugins/golang/set-env.bash
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+source <(asdf completion bash)
+# asdf golang
+source ${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/golang/set-env.bash
 
 # kubectl completion
 HAVE_KUBECTL=$(which kubectl)
@@ -67,3 +66,14 @@ fi
 if [ -f "$HOME"/.bash_prompt ]; then
     source "$HOME"/.bash_prompt
 fi
+
+# uv
+export PATH="$HOME/.local/bin:$PATH"
+
+# rust
+export PATH="$HOME/.asdf/installs/rust/1.90.0/bin:$HOME/.cargo/bin:$PATH"
+source "$HOME/.asdf/installs/rust/1.90.0/env"
+
+# neovim
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+

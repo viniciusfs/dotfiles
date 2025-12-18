@@ -1,0 +1,8 @@
+require("core.options")
+require("core.keymaps")
+require("core.autocmds")
+require("core.format")
+require("plugins")
+require("plugins.config")
+require("plugins.lsp")
+require("plugins.cmp")
