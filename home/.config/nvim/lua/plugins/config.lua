@@ -1,6 +1,6 @@
 -- indentLine
 vim.g.indentLine_setConceal = 0
-vim.g.indentLine_char = "┆"
+vim.g.indentLine_char = '┆'
 
 -- better-whitespace
 vim.g.better_whitespace_enabled = 1
