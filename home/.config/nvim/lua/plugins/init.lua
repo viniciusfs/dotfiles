@@ -14,17 +14,28 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- Colorschemes
   {
-    'tyrannicaltoucan/vim-deep-space',
-    priority = 1000,
+    'navarasu/onedark.nvim',
+    priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      require('core.theme')
+      require('onedark').setup({
+        style = 'warmer',
+      })
+      require('onedark').load()
     end,
   },
-  { 'rose-pine/vim' },
+
+  {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 
   -- UI
   { 'Yggdroot/indentLine' },
   { 'ntpeters/vim-better-whitespace' },
+
+  -- File tree
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -68,9 +79,6 @@ require('lazy').setup({
   { 'preservim/vim-markdown' },
 
   { 'hashivim/vim-terraform' },
-
-  -- AI
-  { 'Exafunction/windsurf.vim' },
 
   -- LSP core
   { 'neovim/nvim-lspconfig' },

@@ -1,34 +1,31 @@
 -- LSP UI
-local border = 'rounded'
-
-vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#5e81ac' }) -- #5e81ac
-
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = border,
-})
-
-vim.lsp.handlers['textDocument/signatureHelp'] =
-  vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = border,
-  })
-
 vim.diagnostic.config({
+  virtual_text = false,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
   float = {
-    border = border,
-  },
-})
-
-vim.diagnostic.config({
-  float = {
-    border = border,
+    border = 'rounded',
     source = 'always',
     header = '',
     prefix = '',
+    focusable = false,
+    max_width = 80,
   },
-  virtual_text = {
-    spacing = 4,
-    prefix = '●',
+
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '✘',
+      [vim.diagnostic.severity.WARN] = '▲',
+      [vim.diagnostic.severity.INFO] = '●',
+      [vim.diagnostic.severity.HINT] = '•',
+    },
   },
-  underline = true,
-  update_in_insert = false,
 })
+
+vim.cmd([[
+  highlight DiagnosticUnderlineError gui=undercurl
+  highlight DiagnosticUnderlineWarn  gui=undercurl
+  highlight DiagnosticUnderlineInfo  gui=underline
+  highlight DiagnosticUnderlineHint  gui=underline
+]])

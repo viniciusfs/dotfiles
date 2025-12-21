@@ -1,1 +1,1 @@
-vim.cmd.colorscheme('deep-space')
+vim.cmd([[colorscheme tokyonight-night]])
