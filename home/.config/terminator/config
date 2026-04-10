@@ -1,0 +1,20 @@
+[global_config]
+  suppress_multiple_term_dialog = True
+[keybindings]
+[profiles]
+  [[default]]
+    background_color = "#1a1f28"
+    cursor_color = "#99a7be"
+    font = UbuntuMono Nerd Font 14
+    foreground_color = "#99a7be"
+    palette = "#1a1f28:#c68b8f:#94b592:#b39b64:#618bc2:#9e87c5:#59abb4:#323c4d:#232936:#ba8873:#94b592:#d5ad75:#618bc2:#c47ec4:#52627f:#99a7be"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
