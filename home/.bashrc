@@ -21,23 +21,17 @@ shopt -s checkwinsize
 
 # Alias definitions
 if [ -f "$HOME"/.bash_aliases ]; then
-    source "$HOME"/.bash_aliases
+  source "$HOME"/.bash_aliases
 fi
 
 # Bash completions
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    source /etc/bash_completion
+  source /etc/bash_completion
 fi
 
 # Put ~/bin on PATH
 if [ -d "$HOME"/bin ]; then
-    PATH="$PATH:$HOME/bin"
-fi
-
-# Set vim as EDITOR
-HAVE_VIM=$(which vim)
-if [ -n "$HAVE_VIM" ]; then
-    export EDITOR=vim
+  PATH="$PATH:$HOME/bin"
 fi
 
 # Virtualenv Wrapper settings
@@ -64,7 +58,12 @@ fi
 
 # Prompt
 if [ -f "$HOME"/.bash_prompt ]; then
-    source "$HOME"/.bash_prompt
+  source "$HOME"/.bash_prompt
+fi
+
+# Helper functions
+if [ -f $HOME/.bash_functions ]; then
+  source $HOME/.bash_functions
 fi
 
 # uv
@@ -76,4 +75,7 @@ source "$HOME/.asdf/installs/rust/1.90.0/env"
 
 # neovim
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
-
+HAVE_VIM=$(which neovim)
+if [ -n "$HAVE_VIM" ]; then
+  export EDITOR=neovim
+fi

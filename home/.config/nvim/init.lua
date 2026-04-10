@@ -1,10 +1,2 @@
-require('core.options')
-require('core.keymaps')
-require('core.autocmds')
-require('core.format')
-require('core.lsp_ui')
-require('core.theme')
-require('plugins')
-require('plugins.config')
-require('plugins.lsp')
-require('plugins.cmp')
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")

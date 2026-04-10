@@ -1,6 +1,6 @@
 argo-rollouts 1.8.3
 argocd 3.1.8
-awscli 2.30.2
+awscli 2.34.27
 crossplane-cli 1.17.4
 golang 1.25.1
 helm 3.19.0
@@ -16,3 +16,6 @@ python 3.12.3
 terraform 1.13.5
 uv 0.8.17
 yq 4.48.1
+lazygit 0.57.0
+hugo 0.153.5
+popeye 0.22.1
