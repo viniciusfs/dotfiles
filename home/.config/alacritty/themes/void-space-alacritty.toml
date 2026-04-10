@@ -1,0 +1,57 @@
+# Void Space - Alacritty color scheme
+# https://github.com/viniciusfs/void-space.nvim
+#
+# Usage: import this file in your alacritty.toml:
+#   import = ["~/.config/alacritty/themes/void-space-alacritty.toml"]
+
+[colors.primary]
+background = "#1a1f28"
+foreground = "#99a7be"
+
+[colors.cursor]
+text   = "#1a1f28"
+cursor = "#99a7be"
+
+[colors.vi_mode_cursor]
+text   = "#1a1f28"
+cursor = "#618bc2"
+
+[colors.selection]
+text       = "#99a7be"
+background = "#323c4d"
+
+[colors.search.matches]
+foreground = "#1a1f28"
+background = "#b39b64"
+
+[colors.search.focused_match]
+foreground = "#1a1f28"
+background = "#d5ad75"
+
+[colors.hints.start]
+foreground = "#1a1f28"
+background = "#b39b64"
+
+[colors.hints.end]
+foreground = "#1a1f28"
+background = "#52627f"
+
+[colors.normal]
+black   = "#1a1f28"
+red     = "#c68b8f"
+green   = "#94b592"
+yellow  = "#b39b64"
+blue    = "#618bc2"
+magenta = "#9e87c5"
+cyan    = "#59abb4"
+white   = "#323c4d"
+
+[colors.bright]
+black   = "#232936"
+red     = "#ba8873"
+green   = "#94b592"
+yellow  = "#d5ad75"
+blue    = "#618bc2"
+magenta = "#c47ec4"
+cyan    = "#52627f"
+white   = "#99a7be"
