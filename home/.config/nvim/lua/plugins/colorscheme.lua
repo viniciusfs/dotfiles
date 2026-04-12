@@ -1,6 +1,7 @@
 return {
   {
     dir = "~/Code/personal/void-space.nvim/",
+    -- "viniciusfs/void-space.nvim",
     name = "void-space",
     lazy = false, -- must be loaded at startup
     priority = 1000, -- load before other UI plugins
@@ -10,6 +11,7 @@ return {
       transparent = false,
       dim_inactive = false,
       variant = "default",
+      dev = true,
     },
     config = function(_, opts)
       require("void-space").setup(opts)
@@ -29,6 +31,13 @@ return {
   { "tyrannicaltoucan/vim-deep-space" },
 
   { "Aejkatappaja/sora" },
+
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 
   { "LazyVim/LazyVim", opts = { colorscheme = "void-space" } },
 }

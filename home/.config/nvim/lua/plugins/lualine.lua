@@ -41,24 +41,14 @@ return {
       },
 
       lualine_c = {
-        {
-          "diagnostics",
-          symbols = {
-            error = icons.diagnostics.Error,
-            warn = icons.diagnostics.Warn,
-            info = icons.diagnostics.Info,
-            hint = icons.diagnostics.Hint,
-          },
-        },
-        {
-          function()
-            local root = LazyVim.root.get({ normalize = true })
-            return "󰉋 " .. vim.fs.basename(root)
-          end,
-          padding = { left = 1, right = 1 },
-        },
+        LazyVim.lualine.root_dir({
+          cwd = true,
+        }),
         { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-        { LazyVim.lualine.pretty_path() },
+        { LazyVim.lualine.pretty_path({
+          relative = "root",
+          modified_hl = "WarningMsg",
+        }) },
         {
           symbols.get,
           cond = function()
@@ -101,6 +91,15 @@ return {
           color = function()
             return { fg = Snacks.util.color("Debug") }
           end,
+        },
+        {
+          "diagnostics",
+          symbols = {
+            error = icons.diagnostics.Error,
+            warn = icons.diagnostics.Warn,
+            info = icons.diagnostics.Info,
+            hint = icons.diagnostics.Hint,
+          },
         },
       },
       lualine_y = {
