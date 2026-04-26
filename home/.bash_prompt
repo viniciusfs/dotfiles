@@ -44,6 +44,14 @@ function set_virtualenv {
   fi
 }
 
+function set_aws_context {
+  if [[ $AWS_PROFILE != "" ]]; then
+    AWS_CONTEXT="${ORANGE}[aws: $AWS_PROFILE]${RESET}"
+  else
+    AWS_CONTEXT=""
+  fi
+}
+
 function is_git_repository {
   git branch > /dev/null 2>&1
 }
@@ -91,6 +99,8 @@ function set_bash_prompt {
 
   set_working_dir
 
+  set_aws_context
+
   set_k8s_context
 
   set_virtualenv
@@ -101,7 +111,7 @@ function set_bash_prompt {
     BRANCH=''
   fi
 
-  PS1="\n\u@\H ${WORKING_DIR} ${BRANCH} ${PYTHON_VIRTUALENV} ${K8S_CONTEXT}\n${PROMPT_SYMBOL} "
+  PS1="\n\u@\H ${WORKING_DIR} ${BRANCH} ${PYTHON_VIRTUALENV} ${AWS_CONTEXT} ${K8S_CONTEXT}\n${PROMPT_SYMBOL} "
 }
 
 PROMPT_COMMAND=set_bash_prompt

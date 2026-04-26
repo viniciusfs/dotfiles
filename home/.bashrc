@@ -75,7 +75,11 @@ source "$HOME/.asdf/installs/rust/1.90.0/env"
 
 # neovim
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
-HAVE_VIM=$(which neovim)
+HAVE_VIM=$(which nvim)
 if [ -n "$HAVE_VIM" ]; then
-  export EDITOR=neovim
+  export EDITOR=nvim
 fi
+
+export GTK_IM_MODULE=cedilla
+
+source '/home/vinicius.figueiredo/.bash_completions/orka.sh'

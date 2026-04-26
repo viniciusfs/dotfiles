@@ -19,3 +19,5 @@ yq 4.48.1
 lazygit 0.57.0
 hugo 0.153.5
 popeye 0.22.1
+pandoc 3.9.0.2
+fzf 0.71.0

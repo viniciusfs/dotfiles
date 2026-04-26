@@ -5,10 +5,12 @@
   [[default]]
     background_color = "#1a1f28"
     cursor_color = "#99a7be"
-    font = UbuntuMono Nerd Font 14
     foreground_color = "#99a7be"
-    palette = "#1a1f28:#c68b8f:#94b592:#b39b64:#618bc2:#9e87c5:#59abb4:#323c4d:#232936:#ba8873:#94b592:#d5ad75:#618bc2:#c47ec4:#52627f:#99a7be"
+    palette = "#1a1f28:#c68b8f:#8fb98c:#b39b64:#618bc2:#9b88d0:#4ab5c4:#323c4d:#232936:#ba8873:#8fb98c:#d5ad75:#618bc2:#cc7dd0:#5f7090:#99a7be"
     use_system_font = False
+    font = UbuntuMono Nerd Font 14
+  [[New Profile]]
+    cursor_color = "#aaaaaa"
 [layouts]
   [[default]]
     [[[window0]]]

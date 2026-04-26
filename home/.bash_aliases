@@ -16,3 +16,5 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias claude-personal='CLAUDE_CONFIG_DIR=$HOME/.claude-personal/ claude'
+
+alias yt='yt-dlp_linux -f "bv*+ba"'

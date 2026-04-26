@@ -6,3 +6,8 @@ aws_login() {
   aws sso login --profile $env
   export AWS_PROFILE=$env
 }
+
+cluster_login() {
+  local cluster=$1
+  kubectl config use-context $cluster
+}

@@ -34,24 +34,24 @@ background = "#b39b64"
 
 [colors.hints.end]
 foreground = "#1a1f28"
-background = "#52627f"
+background = "#5f7090"
 
 [colors.normal]
 black   = "#1a1f28"
 red     = "#c68b8f"
-green   = "#94b592"
+green   = "#8fb98c"
 yellow  = "#b39b64"
 blue    = "#618bc2"
-magenta = "#9e87c5"
-cyan    = "#59abb4"
+magenta = "#9b88d0"
+cyan    = "#4ab5c4"
 white   = "#323c4d"
 
 [colors.bright]
 black   = "#232936"
 red     = "#ba8873"
-green   = "#94b592"
+green   = "#8fb98c"
 yellow  = "#d5ad75"
 blue    = "#618bc2"
-magenta = "#c47ec4"
-cyan    = "#52627f"
+magenta = "#cc7dd0"
+cyan    = "#5f7090"
 white   = "#99a7be"

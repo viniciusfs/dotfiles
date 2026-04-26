@@ -3,7 +3,7 @@ return {
   opts = function(_, opts)
     local icons = LazyVim.config.icons
 
-    opts.options.theme = "void-space"
+    -- opts.options.theme = "void-space"
 
     local trouble = require("trouble")
     local symbols = trouble.statusline({
