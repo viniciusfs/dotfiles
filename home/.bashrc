@@ -81,5 +81,3 @@ if [ -n "$HAVE_VIM" ]; then
 fi
 
 export GTK_IM_MODULE=cedilla
-
-source '/home/vinicius.figueiredo/.bash_completions/orka.sh'
