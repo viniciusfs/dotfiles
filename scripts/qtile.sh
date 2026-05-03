@@ -7,7 +7,9 @@ source "$SCRIPT_DIR/utils.sh"
 
 XSESSION_FILE="/usr/share/xsessions/qtile.desktop"
 
-if ! command_exists qtile; then
+QTILE_BIN="$HOME/.local/bin/qtile"
+
+if [ ! -x "$QTILE_BIN" ]; then
   log_info "installing qtile via pipx"
   pipx install qtile
   log_ok "qtile installed"

@@ -10,7 +10,7 @@ MISE_BIN="$HOME/.local/bin/mise"
 # Check by absolute path — PATH may not include ~/.local/bin in a script subshell
 if [ ! -x "$MISE_BIN" ]; then
   log_info "installing mise"
-  curl https://mise.run | sh
+  curl --proto '=https' --tlsv1.2 -sSf https://mise.run | sh
   log_ok "mise installed"
 else
   log_skip "mise already installed"

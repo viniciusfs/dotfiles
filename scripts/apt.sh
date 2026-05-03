@@ -9,7 +9,7 @@ APT_PACKAGES=(
   # Base build tools
   git curl wget build-essential pkg-config libssl-dev ca-certificates
   # Desktop / compositor
-  picom rofi dunst x11-utils xrandr setxkbmap scrot
+  picom rofi dunst x11-utils x11-xserver-utils x11-xkb-utils scrot
   # Terminal emulators
   kitty alacritty
   # System tray applets
