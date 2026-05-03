@@ -17,11 +17,11 @@ fi
 
 if [ ! -f "$XSESSION_FILE" ]; then
   log_info "registering qtile as a display manager session"
-  sudo tee "$XSESSION_FILE" > /dev/null <<'DESKTOP'
+  sudo tee "$XSESSION_FILE" > /dev/null <<DESKTOP
 [Desktop Entry]
 Name=Qtile
 Comment=Qtile Window Manager
-Exec=qtile start
+Exec=$HOME/.local/bin/qtile start
 Type=Application
 Keywords=wm;tiling
 DESKTOP
