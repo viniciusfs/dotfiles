@@ -136,7 +136,7 @@ keys = [
 groups = [
     Group(
         "1",
-        label="L1",
+        label="1",
         layout="max",
         matches=[
             Match(wm_class="Slack"),
@@ -144,9 +144,9 @@ groups = [
             Match(wm_class="Fortitray"),
         ],
     ),
-    Group("2", label="E1", layout="monadtall"),
-    Group("3", label="L2", layout="max"),
-    Group("4", label="E2", layout="monadtall"),
+    Group("2", label="2", layout="monadtall"),
+    Group("3", label="3", layout="max"),
+    Group("4", label="4", layout="monadtall"),
 ]
 
 _screen_map = {"1": 0, "2": 1, "3": 0, "4": 1}
@@ -184,16 +184,13 @@ _layout = dict(
 )
 
 layouts = [
-    # Principal: janela grande à esquerda + stack à direita
     layout.MonadTall(
         **_layout,
         ratio=0.55,
         single_border_width=0,
         single_margin=0,
     ),
-    # Full screen — para browser / apps de comunicação
     layout.Max(**_layout),
-    # Colunas — alternativa mais flexível
     layout.Columns(
         **_layout,
         border_on_single=False,
@@ -265,7 +262,7 @@ def make_bar(primary=False):
             other_current_screen_border=C["purple"],
             other_screen_border=C["bg_alt"],
             urgent_border=C["red"],
-            rounded=False,
+            rounded=True,
             padding_x=10,
             padding_y=4,
             borderwidth=3,
@@ -342,15 +339,6 @@ def make_bar(primary=False):
     )
 
 
-# ── Screens ───────────────────────────────────────────────────────────────────
-_WALLPAPER = "~/ownCloud/Pictures/wallpapers/nebulosa.jpg"
-
-screens = [
-    Screen(top=make_bar(primary=True), wallpaper=_WALLPAPER, wallpaper_mode="fill"),
-    Screen(top=make_bar(primary=False), wallpaper=_WALLPAPER, wallpaper_mode="fill"),
-]
-
-
 # ── Mouse ─────────────────────────────────────────────────────────────────────
 mouse = [
     # Mod + botão esquerdo: mover janela floating
@@ -369,6 +357,14 @@ mouse = [
     ),
     # Mod + clique do meio: trazer para frente
     Click([MOD], "Button2", lazy.window.bring_to_front()),
+]
+
+# ── Screens ───────────────────────────────────────────────────────────────────
+_WALLPAPER = "~/ownCloud/Pictures/wallpapers/nebulosa.jpg"
+
+screens = [
+    Screen(top=make_bar(primary=True), wallpaper=_WALLPAPER, wallpaper_mode="fill"),
+    Screen(top=make_bar(primary=False), wallpaper=_WALLPAPER, wallpaper_mode="fill"),
 ]
 
 
@@ -396,15 +392,6 @@ def _configure_displays():
 @hook.subscribe.screen_change
 def on_screen_change(_event):
     _configure_displays()
-
-
-# TODO: Ainda não testado, validar comportamento
-@hook.subscribe.client_managed
-def _forticlient_tofront(client):
-    wm_classes = client.get_wm_class() or []
-    if any(c.lower() in ("forticlient", "fortitray") for c in wm_classes):
-        client.tofront()
-        client.focus(warp=False)
 
 
 # ── Autostart ─────────────────────────────────────────────────────────────────
