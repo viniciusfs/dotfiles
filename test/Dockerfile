@@ -11,7 +11,13 @@ RUN apt-get update -qq && \
 
 RUN useradd -m -u ${UID} -s /bin/bash ${USERNAME} && \
     echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USERNAME} && \
-    chmod 0440 /etc/sudoers.d/${USERNAME}
+    chmod 0440 /etc/sudoers.d/${USERNAME} && \
+    mkdir -p /home/${USERNAME}/.local/bin \
+             /home/${USERNAME}/.local/share/mise \
+             /home/${USERNAME}/.local/state \
+             /home/${USERNAME}/.homesick/repos && \
+    chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}/.local \
+                                     /home/${USERNAME}/.homesick
 
 USER ${USERNAME}
 WORKDIR /home/${USERNAME}
