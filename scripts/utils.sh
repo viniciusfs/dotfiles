@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 if [ -t 1 ]; then
-  _RED=$(tput setaf 1 2>/dev/null || true)
-  _GREEN=$(tput setaf 2 2>/dev/null || true)
-  _YELLOW=$(tput setaf 3 2>/dev/null || true)
-  _CYAN=$(tput setaf 6 2>/dev/null || true)
-  _GRAY=$(tput setaf 8 2>/dev/null || true)
-  _RESET=$(tput sgr0 2>/dev/null || true)
-  _BOLD=$(tput bold 2>/dev/null || true)
+  _RED="$(tput setaf 1 2>/dev/null || true)"
+  _GREEN="$(tput setaf 2 2>/dev/null || true)"
+  _YELLOW="$(tput setaf 3 2>/dev/null || true)"
+  _CYAN="$(tput setaf 6 2>/dev/null || true)"
+  _GRAY="$(tput setaf 8 2>/dev/null || true)"
+  _RESET="$(tput sgr0 2>/dev/null || true)"
+  _BOLD="$(tput bold 2>/dev/null || true)"
 else
   _RED=""; _GREEN=""; _YELLOW=""; _CYAN=""; _GRAY=""; _RESET=""; _BOLD=""
 fi
