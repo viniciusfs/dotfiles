@@ -43,11 +43,8 @@ fi
 source "$HOME"/.homesick/repos/homeshick/homeshick.sh
 source "$HOME"/.homesick/repos/homeshick/completions/homeshick-completion.bash
 
-# asdf
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-source <(asdf completion bash)
-# asdf golang
-source ${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/golang/set-env.bash
+# mise
+eval "$(mise activate bash)"
 
 # kubectl completion
 HAVE_KUBECTL=$(which kubectl)
@@ -70,8 +67,7 @@ fi
 export PATH="$HOME/.local/bin:$PATH"
 
 # rust
-export PATH="$HOME/.asdf/installs/rust/1.90.0/bin:$HOME/.cargo/bin:$PATH"
-source "$HOME/.asdf/installs/rust/1.90.0/env"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # neovim
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
