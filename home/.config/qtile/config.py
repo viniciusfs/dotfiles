@@ -4,7 +4,10 @@
 # Void Space — qtile configuration
 # Depends: python3-psutil, rofi, picom, nm-applet, blueman-applet, dunst
 
+import os
+import random
 import subprocess
+from pathlib import Path
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, Rule
 from libqtile.lazy import lazy
@@ -39,6 +42,33 @@ C = {
 FONT = "Ubuntu Mono Nerd Font Mono"
 FONT_SIZE = 12
 ICON_SIZE = 14
+
+
+# ── Terminal helpers ──────────────────────────────────────────────────────────
+def _leaf_cwd(pid):
+    """Walk process tree to the leaf child and return its CWD."""
+    try:
+        children = subprocess.run(
+            ["pgrep", "-P", str(pid)], capture_output=True, text=True
+        ).stdout.split()
+        if children:
+            return _leaf_cwd(children[-1])
+        return os.readlink(f"/proc/{pid}/cwd")
+    except Exception:
+        return None
+
+
+@lazy.function
+def smart_terminal(qtile):
+    """Spawn terminal; reuses CWD if focused window is a terminal."""
+    cwd = None
+    win = qtile.current_window
+    if win is not None:
+        wm_class = win.get_wm_class() or ()
+        if any(TERMINAL.lower() in c.lower() for c in wm_class):
+            cwd = _leaf_cwd(win.get_pid())
+    cmd = [TERMINAL, "--directory", cwd] if cwd else [TERMINAL]
+    subprocess.Popen(cmd)
 
 
 # ── Keybindings ───────────────────────────────────────────────────────────────
@@ -81,7 +111,7 @@ keys = [
         desc="Move window to screen 1",
     ),
     # Launch apps
-    Key([MOD], "Return", lazy.spawn(TERMINAL), desc="Terminal"),
+    Key([MOD], "Return", smart_terminal, desc="Terminal (CWD-aware)"),
     Key([MOD], "b", lazy.spawn(BROWSER), desc="Browser"),
     Key([MOD, "shift"], "b", lazy.spawn(BROWSER_PERSONAL), desc="Browser"),
     Key([MOD], "r", lazy.spawn(LAUNCHER), desc="App launcher"),
@@ -360,7 +390,10 @@ mouse = [
 ]
 
 # ── Screens ───────────────────────────────────────────────────────────────────
-_WALLPAPER = "~/ownCloud/Pictures/wallpapers/nebulosa.jpg"
+_WALLPAPER_DIR = Path("~/ownCloud/Pictures/wallpapers/").expanduser()
+_EXTS = {".jpg", ".jpeg", ".png", ".bmp", ".gif"}
+_wallpapers = [p for p in _WALLPAPER_DIR.iterdir() if p.suffix.lower() in _EXTS] if _WALLPAPER_DIR.is_dir() else []
+_WALLPAPER = str(random.choice(_wallpapers)) if _wallpapers else None
 
 screens = [
     Screen(top=make_bar(primary=True), wallpaper=_WALLPAPER, wallpaper_mode="fill"),
