@@ -1,2 +1,23 @@
 [settings]
 python.github_attestations = false
+
+[tools]
+awscli = { version = "latest", symlink_bins = "true" }
+crossplane = "latest"
+crossplane-cli = "latest"
+fzf = "latest"
+golang = "1.25.1"
+helm = "3.19.0"
+hostctl = "1.1.4"
+jq = "latest"
+kind = "latest"
+kubectl = "latest"
+lazygit = "latest"
+node = "latest"
+npm = "latest"
+pandoc = "3.9.0.2"
+python = "3.12.3"
+terraform = "1.15.2"
+uv = "latest"
+vhs = "latest"
+yq = "latest"
